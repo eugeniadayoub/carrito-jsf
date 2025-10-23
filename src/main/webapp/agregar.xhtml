@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <title>Agregar o Editar Producto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 350px;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 25px;
+        }
+        input {
+            padding: 8px;
+            width: 80%;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            background-color: #4a90e2;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #357ABD;
+        }
+    </style>
+</h:head>
+
+<h:body>
+    <div class="container">
+        <h2>
+            <h:outputText value="#{cartBean.editando ? 'Editar Producto' : 'Agregar Producto'}"/>
+        </h2>
+        <h:form>
+            <h:outputLabel for="id" value="ID del Producto:"/><br/>
+            <h:inputText id="id" value="#{cartBean.id}" /><br/>
+
+            <h:outputLabel for="nombre" value="Nombre del Producto:"/><br/>
+            <h:inputText id="nombre" value="#{cartBean.nombre}" /><br/>
+
+            <h:commandButton 
+                value="#{cartBean.editando ? 'Guardar Cambios' : 'Agregar'}"
+                action="#{cartBean.agregarProducto}"
+                styleClass="btn"/>
+
+            <h:commandButton value="Volver al Inicio" action="index.xhtml" styleClass="btn"/>
+        </h:form>
+    </div>
+</h:body>
+</html>
