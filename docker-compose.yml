@@ -1,0 +1,8 @@
+services:
+  jsf-app:
+    build: .
+    container_name: jsf-carrito
+    ports:
+      - "8080:8080"
+    restart: always
+
